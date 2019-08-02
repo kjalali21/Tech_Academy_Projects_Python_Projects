@@ -1,6 +1,7 @@
 import os.path
 import sys
 import time
+import os
 
 
 #opens file & set variables 
@@ -14,11 +15,9 @@ for file in dirs:
     print(file)
   
 
-#this joins the path and the respective files 
-pythonPath = os.path.join(path,fName)
-print(pythonPath)
-
 # this only will list .txt files in PythonDrill directory
 for file in os.listdir(path):
     if file.endswith(fName):
-     print(path + fName,modification_Epoc)
+        modification_Epoc = os.path.getmtime(os.path.join(path,file))
+        modification_Time = time.strftime('%H:%M:%S', time.localtime(modification_Epoc))   
+        print(f'{file}, {modification_Time}')
