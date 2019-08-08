@@ -1,45 +1,34 @@
 import sqlite3
-connection = sqlite3.connect('Drill_2.db')
+connection = sqlite3.connect('Drill_5.db')
+
+#filextension variable
+fext = '.txt'
+
+# array of files
+files = ('information.docx','Hello.txt','myImage.png', \
+            'myMovie.mpg','World.txt','data.pdf','myPhoto.jpg')
 
 with connection:
     cur = connection.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS Drill( \
+    cur.execute("CREATE TABLE IF NOT EXISTS all_files( \
       ID INTEGER PRIMARY KEY AUTOINCREMENT, \
-      firstName TEXT \
-      )")
+      fname TEXT \
+       )")
     connection.commit() 
 connection.close()         
 
-
-connection = sqlite3.connect('Drill_2.db')
-
+  
+connection = sqlite3.connect('Drill_5.db')
 with connection:
-    cur = connection.cursor()
-    cur.execute("INSERT INTO Drill (firstName) VALUES (?)", \
-        ('data.pdf'))
-    cur.execute("INSERT INTO Drill (firstName) VALUES (?)", \
-        ('Hello.txt'))    
-    cur.execute("INSERT INTO Drill (firstName) VALUES (?)", \
-        ('information.docx'))     
-    cur.execute("INSERT INTO Drill (firstName) VALUES (?)", \
-        ('myImage.png'))     
-    cur.execute("INSERT INTO Drill (firstName) VALUES (?)", \
-        ('myMovie.png')) 
-    cur.execute("INSERT INTO Drill (firstName) VALUES (?)", \
-        ('myPhoto.png'))       
-    cur.execute("INSERT INTO Drill (firstName) VALUES (?)", \
-        ('World.txt'))           
-    connection.commit()
-connection.close()    
+    cur = connection.cursor()       
+    for item in files:
+        if item.endswith(fext):
+            msg = "files: {}".format(item) 
+            print(msg)
+            cur.execute("INSERT INTO all_files(fname) VALUES (?)", \
+        (item,))      
+            
 
 
-connection = sqlite3.connect('Drill_2.db')
-with connection:
-    cur = connection.cursor()
-    cur.execute("SELECT firstName FROM Drill WHERE firstName = '.txt' ")
-    File = cur.fetchall
-    for item in File:
-        filemsg = "File Name: {}".format(item[0])
-    print(filemsg)    
 
 
