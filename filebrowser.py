@@ -16,7 +16,7 @@ class ParentWindow(Frame):
 
         #GUI 
     def gui_widgets(self): 
-        self.browse = Button(self.master, text width=12,height=2 text="Browse" )
+    self.browse = Button(self.master, text width=12,height=2 text="Browse" )
 
 
 
