@@ -14,10 +14,10 @@ class ParentWindow(Frame):
         self.master.title("File Browser")
         
 
-    def gui_widgets(self): 
-    self.browse = Button(self.master, text width=12,height=2 text="Browse" )
+        self.browse = tk.Button(self.master,width=12,height=1,text="Browse" )
+        self.browse = tk.Button(self.master,width=12,height=1,text="Browse" )
         #GUI BUTTON
-        self.btn_browse.grid(row=8,column=0,padx=(25,5),pady=(55,0),sticky=W)
+        self.browse.grid(row=1,column=0,padx=(25,5),pady=(55,0),sticky=W)
         
         # GUI TextBox
         self.box = tk.Entry(self.master, text = '')
