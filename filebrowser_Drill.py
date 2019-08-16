@@ -13,26 +13,29 @@ class ParentWindow(Frame):
         self.master.maxsize(500,300)
         #title of window
         self.master.title("File Browser")
-        
+        global folder_path
+        folder_path = StringVar()
         ### function for Browse Folder Button
         def opendirectory():
-            global folder_path
-            filename = filedialog.askdirectory()
-            folder_path.set(filename)
-            print(filename)
-
-        self.browse = tk.Button(self.master,width=12,height=2,text="Browse Folders..",command=opendirectory)
-        self.browse.grid(row=1,column=0,padx=(15,5),pady=(25,0),sticky=W)
-        # GUI TextBox
-        self.scrollbar1 = Scrollbar(self.master,orient=VERTICAL)
-        self.lstList1 = Listbox(self.master,exportselection=0,yscrollcommand=self.scrollbar1.set)
+            
+            dirname = filedialog.askdirectory()
+            folder_path.set(dirname)
+            print(dirname)
+            
+            
+            
+           
+        ### lists file path in TK listbox    
+        self.browse = tk.Button(self.master,width=12,height=1,text="Browse Folders..",command=opendirectory)
+        self.browse.grid(row=1,column=0,padx=(5,5),pady=(25,0))
+        # GUI ListtBox
+        self.lstList1 = tk.Entry(self.master,text='',textvariable=folder_path)
         self.lstList1.bind('<<ListboxSelect>>',(self))
-        self.scrollbar1.config(command=self.lstList1.yview)
-        self.scrollbar1.grid(row=1,column=5,rowspan=7,columnspan=3,padx=(70,0),pady=(0,0),sticky=E)
-        self.lstList1.grid(row=1,column=2,rowspan=7,columnspan=3,padx=(0,0),pady=(0,0),sticky=N+E+S+W)
+        self.lstList1.grid(row=2,column=1,rowspan=7,columnspan=5,padx=(45,30),pady=(0,0),sticky=N+E+W)
 
         
         
+
 
         
 
