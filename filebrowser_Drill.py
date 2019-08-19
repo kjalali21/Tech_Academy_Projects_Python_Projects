@@ -21,10 +21,7 @@ class ParentWindow(Frame):
             dirname = filedialog.askdirectory()
             folder_path.set(dirname)
             print(dirname)
-            
-            
-            
-           
+          
         ### lists file path in TK listbox    
         self.browse = tk.Button(self.master,width=12,height=1,text="Browse Folders..",command=opendirectory)
         self.browse.grid(row=1,column=0,padx=(5,5),pady=(25,0))
