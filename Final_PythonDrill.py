@@ -27,7 +27,7 @@ class ParentWindow(Frame):
     #####Destination dierctory button sets your destination path
         def dest_directory():
             destination_path.set( filedialog.askdirectory() )
-            print(destination_path.get())    
+          
 
         def iterate_directory():
             for file in os.listdir( source_path.get() ):

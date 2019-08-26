@@ -15,6 +15,7 @@ class ParentWindow(Frame):
         self.master.title("File Browser")
         global folder_path
         folder_path = StringVar()
+        
         ### function for Browse Folder Button
         def opendirectory():
             
@@ -26,7 +27,7 @@ class ParentWindow(Frame):
         self.browse = tk.Button(self.master,width=12,height=1,text="Browse Folders..",command=opendirectory)
         self.browse.grid(row=1,column=0,padx=(5,5),pady=(25,0))
         # GUI ListtBox
-        self.Directory_path = tk.Entry(self.master,text='',textvariable=folder_path)
+        self.Directory_path = tk.Entry(self.master,text='Hello',textvariable=folder_path)
         self.Directory_path.bind('<<ListboxSelect>>',(self))
         self.Directory_path.grid(row=2,column=1,rowspan=7,columnspan=5,padx=(45,30),pady=(0,0),sticky=N+E+W)
 
